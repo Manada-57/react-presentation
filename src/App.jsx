@@ -30,12 +30,30 @@ export default function App() {
     }
     return () => clearInterval(timerRef.current);
   }, [timerRunning]);
+const enterPres = () => {
+  setPresMode(true);
+  setTimerRunning(true);
 
+  if (document.documentElement.requestFullscreen) {
+    document.documentElement.requestFullscreen();
+  }
+};
+const exitPres = () => {
+  setPresMode(false);
+  setTimerRunning(false);
+
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+  }
+};
   useEffect(() => {
     const handleKey = (e) => {
-      if (e.key === "Escape" && presMode) { setPresMode(false); setTimerRunning(false); return; }
+      if (e.key === "Escape" && presMode) {
+  exitPres();
+  return;
+}
       if (!presMode) {
-        if (e.key === "f" || e.key === "F") { setPresMode(true); setTimerRunning(true); return; }
+        if (e.key === "f" || e.key === "F") { enterPres(); return; }
       }
       if (presMode) {
         if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") {
@@ -58,8 +76,7 @@ export default function App() {
   const go = (d) => setCur((p) => Math.min(Math.max(p + d, 0), slides.length - 1));
   const progress = (((cur + 1) / slides.length) * 100).toFixed(0);
   const fmtTime = (s) => `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
-  const enterPres = () => { setPresMode(true); setTimerRunning(true); };
-  const exitPres = () => { setPresMode(false); setTimerRunning(false); };
+
 
   /* ── Presentation Mode ── */
   if (presMode) {
