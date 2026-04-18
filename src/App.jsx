@@ -238,7 +238,7 @@ function TitleSlide({ presMode }) {
       <h1 style={{ fontSize: presMode ? 52 : 36, fontWeight: 500, margin: "1.25rem 0 .5rem" }}>React State</h1>
       <p style={{ fontSize: presMode ? 24 : 18, color: "#6b7280", marginBottom: ".75rem" }}>Understanding state, the old way, and the useState hook</p>
       <p style={{ fontSize: presMode ? 16 : 14, color: "#9ca3af", marginBottom: "2rem" }}>Pro MERN Stack — Chapter 11 & beyond</p>
-      <p style={{ fontSize: 14, color: "#9ca3af" }}>J. Seetharaman (23BCS117) &nbsp;•&nbsp; S. Pandi (23BCS111)</p>
+      <p style={{ fontSize: 14, color: "#9ca3af" }}>J. Seetharaman (23BCS117)</p>
       </div>
   );
 }
