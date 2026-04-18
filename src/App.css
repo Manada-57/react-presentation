@@ -78,6 +78,20 @@ body::before {
   line-height: 1.8;
   color: #555;
 }
+.countdown {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #ff4d4f;
+}
+
+.final-text {
+  font-size: 28px;
+  margin-top: 20px;
+  color: #1f383f;
+}
 
 /* Lists */
 .slide-content ul {
